@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sri Lanka Map - Based on public domain geographic data -->
+<!-- Free to use for any purpose -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 700" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Climate Zone Gradients -->
+    <linearGradient id="dryZone" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="wetZone" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+    <linearGradient id="hillZone" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+    <linearGradient id="interZone" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#84cc16"/>
+      <stop offset="100%" stop-color="#65a30d"/>
+    </linearGradient>
+    <linearGradient id="oceanBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#bae6fd"/>
+    </linearGradient>
+    
+    <!-- Drop shadow -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#1e3a5f" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Ocean Background -->
+  <rect width="500" height="700" fill="url(#oceanBg)"/>
+  
+  <!-- Wave Pattern -->
+  <g opacity="0.15">
+    <path d="M0 50 Q25 40 50 50 T100 50 T150 50 T200 50 T250 50 T300 50 T350 50 T400 50 T450 50 T500 50" stroke="#0284c7" fill="none" stroke-width="2"/>
+    <path d="M0 100 Q25 90 50 100 T100 100 T150 100 T200 100 T250 100 T300 100 T350 100 T400 100 T450 100 T500 100" stroke="#0284c7" fill="none" stroke-width="2"/>
+    <path d="M0 150 Q25 140 50 150 T100 150 T150 150 T200 150 T250 150 T300 150 T350 150 T400 150 T450 150 T500 150" stroke="#0284c7" fill="none" stroke-width="2"/>
+    <path d="M0 600 Q25 590 50 600 T100 600 T150 600 T200 600 T250 600 T300 600 T350 600 T400 600 T450 600 T500 600" stroke="#0284c7" fill="none" stroke-width="2"/>
+    <path d="M0 650 Q25 640 50 650 T100 650 T150 650 T200 650 T250 650 T300 650 T350 650 T400 650 T450 650 T500 650" stroke="#0284c7" fill="none" stroke-width="2"/>
+  </g>
+  
+  <!-- Main Island with Shadow -->
+  <g filter="url(#shadow)">
+    <!-- Base Island Shape - Geographic outline of Sri Lanka -->
+    <path id="island" d="
+      M250 35
+      L268 38 L285 48 L302 62 L318 82
+      L332 105 L343 132 L350 162 L354 195
+      L355 230 L352 268 L346 308 L337 350
+      L325 392 L310 432 L292 470 L271 505
+      L248 537 L223 563 L198 583 L175 598
+      L155 607 L138 610 L122 607 L108 598
+      L95 583 L85 563 L78 538 L75 510
+      L76 478 L82 445 L92 412 L106 380
+      L122 350 L140 322 L158 298 L174 278
+      L186 262 L194 248 L198 235 L198 222
+      L194 208 L186 192 L175 175 L162 158
+      L150 142 L142 128 L138 115 L138 102
+      L142 88 L152 72 L168 55 L188 42
+      L210 35 L232 33 L250 35
+      Z
+    " fill="#f5f5f4" stroke="#94a3b8" stroke-width="3"/>
+    
+    <!-- Jaffna Peninsula -->
+    <path d="
+      M210 35 L195 28 L178 25 L160 28 L145 35
+      L135 48 L132 62 L138 72 L152 72
+      L168 55 L188 42 L210 35
+      Z
+    " fill="#f5f5f4" stroke="#94a3b8" stroke-width="3"/>
+  </g>
+  
+  <!-- Climate Zones Overlay -->
+  <g opacity="0.75">
+    <!-- Dry Zone (North) -->
+    <path d="
+      M210 35 L195 28 L178 25 L160 28 L145 35
+      L135 48 L132 62 L138 72 L152 72
+      L168 55 L188 42 L210 35
+      Z
+    " fill="url(#dryZone)"/>
+    
+    <!-- Dry Zone (North-Central) -->
+    <path d="
+      M250 35 L268 38 L285 48 L302 62 L318 82
+      L332 105 L343 132 L350 162 L354 195
+      L280 200 L220 180 L180 150 L162 158
+      L150 142 L142 128 L138 115 L138 102
+      L142 88 L152 72 L168 55 L188 42
+      L210 35 L232 33 L250 35
+      Z
+    " fill="url(#dryZone)"/>
+    
+    <!-- Hill Country (Central) -->
+    <path d="
+      M180 200 L220 220 L240 260 L230 310
+      L200 340 L170 350 L150 330 L145 290
+      L150 250 L165 220 L180 200
+      Z
+    " fill="url(#hillZone)"/>
+    
+    <!-- Wet Zone (Southwest) -->
+    <path d="
+      M75 510 L76 478 L82 445 L92 412
+      L106 380 L122 350 L140 340 L150 360
+      L155 400 L155 450 L150 500 L138 550
+      L122 580 L108 598 L95 583 L85 563
+      L78 538 L75 510
+      Z
+    " fill="url(#wetZone)"/>
+    
+    <!-- Intermediate Zone (West) -->
+    <path d="
+      M122 350 L140 322 L158 298 L174 278
+      L186 262 L194 248 L198 235 L180 200
+      L165 220 L150 250 L145 290 L150 330
+      L140 340 L122 350
+      Z
+    " fill="url(#interZone)"/>
+    
+    <!-- Intermediate Zone (East) -->
+    <path d="
+      M354 195 L355 230 L352 268 L346 308
+      L337 350 L325 392 L310 432 L292 470
+      L260 420 L250 360 L260 300 L280 240
+      L280 200 L354 195
+      Z
+    " fill="url(#interZone)" opacity="0.6"/>
+  </g>
+  
+  <!-- City Markers -->
+  <g>
+    <!-- Colombo (Capital) -->
+    <circle cx="118" cy="378" r="12" fill="#1e3a5f"/>
+    <circle cx="118" cy="378" r="8" fill="#f97316"/>
+    <circle cx="118" cy="378" r="4" fill="white"/>
+    
+    <!-- Kandy -->
+    <circle cx="195" cy="295" r="10" fill="#1e3a5f"/>
+    <circle cx="195" cy="295" r="6" fill="#14b8a6"/>
+    <circle cx="195" cy="295" r="3" fill="white"/>
+    
+    <!-- Jaffna -->
+    <circle cx="175" cy="52" r="9" fill="#1e3a5f"/>
+    <circle cx="175" cy="52" r="5" fill="#f59e0b"/>
+    <circle cx="175" cy="52" r="2.5" fill="white"/>
+    
+    <!-- Trincomalee -->
+    <circle cx="335" cy="200" r="9" fill="#1e3a5f"/>
+    <circle cx="335" cy="200" r="5" fill="#84cc16"/>
+    <circle cx="335" cy="200" r="2.5" fill="white"/>
+    
+    <!-- Galle -->
+    <circle cx="145" cy="578" r="9" fill="#1e3a5f"/>
+    <circle cx="145" cy="578" r="5" fill="#22c55e"/>
+    <circle cx="145" cy="578" r="2.5" fill="white"/>
+    
+    <!-- Nuwara Eliya -->
+    <circle cx="215" cy="330" r="8" fill="#1e3a5f"/>
+    <circle cx="215" cy="330" r="4.5" fill="#0d9488"/>
+    <circle cx="215" cy="330" r="2" fill="white"/>
+    
+    <!-- Anuradhapura -->
+    <circle cx="220" cy="145" r="8" fill="#1e3a5f"/>
+    <circle cx="220" cy="145" r="4.5" fill="#f59e0b"/>
+    <circle cx="220" cy="145" r="2" fill="white"/>
+    
+    <!-- Batticaloa -->
+    <circle cx="340" cy="340" r="8" fill="#1e3a5f"/>
+    <circle cx="340" cy="340" r="4.5" fill="#84cc16"/>
+    <circle cx="340" cy="340" r="2" fill="white"/>
+    
+    <!-- Arugam Bay -->
+    <circle cx="330" cy="430" r="8" fill="#1e3a5f"/>
+    <circle cx="330" cy="430" r="4.5" fill="#84cc16"/>
+    <circle cx="330" cy="430" r="2" fill="white"/>
+  </g>
+  
+  <!-- City Labels -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-weight="600" fill="#1e3a5f">
+    <text x="118" y="405" text-anchor="middle" font-size="14">Colombo</text>
+    <text x="195" y="320" text-anchor="middle" font-size="13">Kandy</text>
+    <text x="175" y="38" text-anchor="middle" font-size="12">Jaffna</text>
+    <text x="370" cy="205" text-anchor="start" font-size="12">Trincomalee</text>
+    <text x="145" y="600" text-anchor="middle" font-size="12">Galle</text>
+    <text x="248" y="335" text-anchor="start" font-size="11">Nuwara Eliya</text>
+    <text x="220" y="132" text-anchor="middle" font-size="11">Anuradhapura</text>
+    <text x="375" y="345" text-anchor="start" font-size="11">Batticaloa</text>
+    <text x="365" y="435" text-anchor="start" font-size="11">Arugam Bay</text>
+  </g>
+  
+  <!-- Compass Rose -->
+  <g transform="translate(430, 80)">
+    <circle cx="0" cy="0" r="32" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+    <polygon points="0,-25 6,-8 0,-12 -6,-8" fill="#1e3a5f"/>
+    <polygon points="0,25 6,8 0,12 -6,8" fill="#94a3b8"/>
+    <polygon points="25,0 8,6 12,0 8,-6" fill="#94a3b8"/>
+    <polygon points="-25,0 -8,6 -12,0 -8,-6" fill="#94a3b8"/>
+    <text x="0" y="-38" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a5f">N</text>
+  </g>
+  
+  <!-- Scale Bar -->
+  <g transform="translate(30, 660)">
+    <rect x="0" y="0" width="100" height="6" fill="#1e3a5f"/>
+    <rect x="0" y="0" width="50" height="6" fill="white"/>
+    <rect x="0" y="0" width="100" height="6" fill="none" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="0" y="20" font-size="11" fill="#1e3a5f">0</text>
+    <text x="50" y="20" font-size="11" fill="#1e3a5f" text-anchor="middle">50</text>
+    <text x="100" y="20" font-size="11" fill="#1e3a5f" text-anchor="middle">100 km</text>
+  </g>
+  
+  <!-- Legend Box -->
+  <g transform="translate(320, 520)">
+    <rect x="0" y="0" width="150" height="120" rx="12" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+    <text x="75" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e3a5f">Climate Zones</text>
+    
+    <rect x="15" y="40" width="24" height="14" rx="3" fill="url(#dryZone)"/>
+    <text x="48" y="52" font-size="11" fill="#374151">Dry Zone (Hot)</text>
+    
+    <rect x="15" y="60" width="24" height="14" rx="3" fill="url(#wetZone)"/>
+    <text x="48" y="72" font-size="11" fill="#374151">Wet Zone</text>
+    
+    <rect x="15" y="80" width="24" height="14" rx="3" fill="url(#hillZone)"/>
+    <text x="48" y="92" font-size="11" fill="#374151">Hill Country</text>
+    
+    <rect x="15" y="100" width="24" height="14" rx="3" fill="url(#interZone)"/>
+    <text x="48" y="112" font-size="11" fill="#374151">Intermediate</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="250" y="680" text-anchor="middle" font-size="12" fill="#64748b" font-family="system-ui, sans-serif">
+    Sri Lanka - Climate Zones Map
+  </text>
+</svg>
