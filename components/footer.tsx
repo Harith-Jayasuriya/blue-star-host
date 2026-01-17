@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Facebook, Instagram, Twitter, Youtube, MapPin, Phone, Mail, Send, CheckCircle } from "lucide-react"
@@ -53,8 +54,14 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-full bg-bluestar flex items-center justify-center">
-                <span className="text-white font-bold text-lg">★</span>
+              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center overflow-hidden">
+                <Image 
+                  src="/logo.svg" 
+                  alt="Blue Star Travels" 
+                  width={40} 
+                  height={40} 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="text-xl font-bold">
                 <span className="text-white">Blue Star</span> <span className="text-teal">Travels</span>

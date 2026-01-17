@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Menu, X, Phone, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -45,12 +46,15 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <div
-              className={cn(
-                "w-10 h-10 rounded-full flex items-center justify-center transition-colors",
-                isScrolled || !hasDarkHero ? "bg-bluestar" : "bg-white/20 backdrop-blur-sm",
-              )}
+              className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden bg-white"
             >
-              <span className="text-white font-bold text-lg">★</span>
+              <Image 
+                src="/logo.svg" 
+                alt="Blue Star Travels" 
+                width={40} 
+                height={40} 
+                className="w-full h-full object-contain"
+              />
             </div>
             <span className={cn("text-xl font-bold transition-colors", isScrolled || !hasDarkHero ? "text-bluestar" : "text-white")}>
               Blue Star <span className="text-teal">Travels</span>

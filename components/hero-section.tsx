@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ChevronDown, Star, Shield, Users } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -87,13 +88,19 @@ export function HeroSection() {
             whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.4)" }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <motion.span 
-              className="text-gold text-xl"
+            <motion.div
+              className="w-5 h-5 rounded-full bg-white flex items-center justify-center overflow-hidden"
               animate={{ rotate: [0, 360] }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             >
-              ★
-            </motion.span>
+              <Image 
+                src="/logo.svg" 
+                alt="Blue Star Travels" 
+                width={20} 
+                height={20} 
+                className="w-full h-full object-contain"
+              />
+            </motion.div>
             <span className="text-white font-medium">Blue Star Travels</span>
           </motion.div>
         </motion.div>
