@@ -7,6 +7,25 @@ const nextConfig = {
     unoptimized: true,
   },
   poweredByHeader: false,
+  productionBrowserSourceMaps: false,
+  reactStrictMode: true,
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
+  },
+  webpack: (config, { dev, isServer }) => {
+    if (!dev && !isServer) {
+      // Minimize technology detection in production
+      config.optimization = {
+        ...config.optimization,
+        moduleIds: 'deterministic',
+        chunkIds: 'deterministic',
+      }
+    }
+    return config
+  },
   async headers() {
     return [
       {
@@ -14,6 +33,10 @@ const nextConfig = {
         headers: [
           {
             key: 'X-Powered-By',
+            value: '',
+          },
+          {
+            key: 'Server',
             value: '',
           },
           {
@@ -31,6 +54,19 @@ const nextConfig = {
           {
             key: 'Referrer-Policy',
             value: 'strict-origin-when-cross-origin',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'geolocation=(), microphone=(), camera=()',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },

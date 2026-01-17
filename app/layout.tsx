@@ -13,6 +13,8 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Blue Star Travels | Discover Sri Lanka",
   description: "Premium Sri Lankan travel and tour agency. Authentic adventures crafted for global travelers.",
+  generator: undefined,
+  applicationName: "Blue Star Travels",
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",
