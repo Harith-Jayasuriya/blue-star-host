@@ -215,7 +215,7 @@ const traditions = [
   {
     title: "Traditional Dance & Music",
     description: "Sri Lanka's performing arts are a feast for the senses. Kandyan dance features elaborate costumes with silver ornaments and rhythmic movements. Low Country devil dancing combines exorcism rituals with acrobatic performances. The thundering drums and graceful movements tell stories of ancient legends.",
-    image: "/stilt-fishermen-sri-lanka-traditional-sunset.jpg",
+    image: "https://images.pexels.com/photos/18161079/pexels-photo-18161079.jpeg",
     icon: Music,
     events: ["Kandyan Dance", "Low Country Dance", "Sabaragamuwa Dance", "Traditional Drumming"],
   },
