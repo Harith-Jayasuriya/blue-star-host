@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  turbopack: {},  // ADD THIS LINE to fix the Turbopack error
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -9,7 +10,7 @@ const nextConfig = {
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
   reactStrictMode: true,
-  swcMinify: true,
+  // swcMinify is already commented out - good!
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? {
       exclude: ['error', 'warn'],

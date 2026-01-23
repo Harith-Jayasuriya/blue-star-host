@@ -696,6 +696,300 @@ export default function SriLankaPage() {
         </div>
       </section>
 
+      {/* TripAdvisor Awards Section */}
+      <section className="py-12 lg:py-16 bg-gradient-to-br from-gold/10 via-orange/5 to-teal/10 relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal/5 rounded-full blur-3xl" />
+        
+        <div className="container mx-auto px-4 relative">
+          <motion.div 
+            className="text-center mb-10"
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <motion.div variants={scaleIn}>
+              <Badge className="mb-4 bg-gold/20 text-gold border-gold/30">
+                <Star className="w-4 h-4 mr-2 fill-gold" />
+                World-Class Recognition
+              </Badge>
+            </motion.div>
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-foreground mb-4"
+              variants={fadeInUp}
+            >
+              TripAdvisor Travelers' Choice{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-orange">
+                Awards 2026
+              </span>
+            </motion.h2>
+            <motion.p 
+              className="text-muted-foreground max-w-3xl mx-auto text-lg"
+              variants={fadeInUp}
+            >
+              Discover why millions of travelers have recognized Sri Lanka as one of the world's premier destinations
+            </motion.p>
+          </motion.div>
+
+          {/* Main Award Card */}
+          <motion.div
+            className="max-w-5xl mx-auto mb-8"
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <Card className="overflow-hidden border-2 border-gold/30 shadow-2xl bg-gradient-to-br from-white to-gold/5">
+              <div className="grid md:grid-cols-2 gap-0">
+                {/* Left Side - Image */}
+                <motion.div
+                  className="relative h-[300px] md:h-full min-h-[300px]"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 200 }}
+                >
+                  <Image
+                    src="/luxury-beach-resort-mirissa-sri-lanka-sunset.jpg"
+                    alt="Galle - Best Honeymoon Destination"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <Badge className="mb-2 bg-gold/90 text-navy border-gold">
+                      <Crown className="w-3 h-3 mr-1" />
+                      #5 in the World
+                    </Badge>
+                    <h3 className="text-white text-xl font-bold">Galle, Sri Lanka</h3>
+                  </div>
+                </motion.div>
+
+                {/* Right Side - Content */}
+                <CardContent className="p-8 md:p-10 flex flex-col justify-center">
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center">
+                        <Heart className="w-8 h-8 text-gold fill-gold" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl md:text-3xl font-bold text-foreground">
+                          Best Honeymoon Destination
+                        </h3>
+                        <p className="text-muted-foreground text-sm">TripAdvisor Travelers' Choice Awards 2026</p>
+                      </div>
+                    </div>
+                    
+                    <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
+                      Galle has been ranked <span className="font-bold text-gold">#5 Best Honeymoon Destination in the World</span> by TripAdvisor's Travelers' Choice Awards 2026. This historic coastal gem combines colonial charm, pristine beaches, and romantic sunsets, making it the perfect destination for couples seeking an unforgettable honeymoon experience.
+                    </p>
+
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="flex items-center gap-1">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-5 h-5 text-gold fill-gold" />
+                        ))}
+                      </div>
+                      <span className="text-sm font-semibold text-foreground">Rated by Travelers Worldwide</span>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      <Badge className="bg-gold/10 text-gold border-gold/20">
+                        Romantic Getaway
+                      </Badge>
+                      <Badge className="bg-gold/10 text-gold border-gold/20">
+                        Historic Charm
+                      </Badge>
+                      <Badge className="bg-gold/10 text-gold border-gold/20">
+                        Beach Paradise
+                      </Badge>
+                    </div>
+                  </motion.div>
+                </CardContent>
+              </div>
+            </Card>
+          </motion.div>
+
+          {/* Additional Awards Grid */}
+          <motion.div
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            {[
+              {
+                title: "Most Beautiful Island",
+                source: "Big 7 Travel 2025",
+                icon: Gem,
+                color: "from-teal to-blue-500",
+                bgGradient: "from-teal/10 via-blue-500/5 to-teal/10",
+                borderColor: "border-teal/20",
+                glowColor: "shadow-teal/20",
+                image: "/pristine-tropical-beach-sri-lanka-palm-trees-turqu.jpg",
+              },
+              {
+                title: "Best Places to Travel",
+                source: "BBC Travel 2025",
+                rank: "#9",
+                icon: Globe,
+                color: "from-blue-500 to-teal",
+                bgGradient: "from-blue-500/10 via-teal/5 to-blue-500/10",
+                borderColor: "border-blue-500/20",
+                glowColor: "shadow-blue-500/20",
+                image: "/sigiriya-rock-fortress-sri-lanka-aerial-view-sunri.jpg",
+              },
+              {
+                title: "Best Food Destination",
+                source: "Condé Nast Traveler 2025",
+                rank: "#7",
+                icon: Utensils,
+                color: "from-orange to-red-500",
+                bgGradient: "from-orange/10 via-red-500/5 to-orange/10",
+                borderColor: "border-orange/20",
+                glowColor: "shadow-orange/20",
+                image: "/hoppers.webp",
+              },
+              {
+                title: "Most Family-Friendly",
+                source: "Condé Nast Traveller 2025",
+                icon: Users,
+                color: "from-green-500 to-emerald-500",
+                bgGradient: "from-green-500/10 via-emerald-500/5 to-green-500/10",
+                borderColor: "border-green-500/20",
+                glowColor: "shadow-green-500/20",
+                image: "/wild-elephants-safari-yala-national-park-sri-lanka.jpg",
+              },
+            ].map((award, index) => (
+              <motion.div
+                key={index}
+                variants={staggerItem}
+                whileHover={{ y: -8, scale: 1.03 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="group"
+              >
+                <Card className={cn(
+                  "h-full border-2",
+                  "hover:shadow-2xl transition-all duration-500",
+                  "relative overflow-hidden",
+                  award.borderColor,
+                  award.glowColor
+                )}>
+                  {/* Background Image */}
+                  <div className="absolute inset-0">
+                    <Image
+                      src={award.image}
+                      alt={award.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className={cn(
+                      "absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80",
+                    )} />
+                  </div>
+
+                  {/* Shine effect on hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+                  </div>
+
+                  <CardContent className="p-8 flex flex-col items-center text-center relative z-10">
+                    {/* Icon with enhanced styling */}
+                    <motion.div
+                      className={cn(
+                        "w-20 h-20 rounded-3xl bg-gradient-to-br flex items-center justify-center mb-6",
+                        "shadow-lg group-hover:shadow-2xl group-hover:ring-4 group-hover:ring-white/30 transition-all duration-300",
+                        award.color
+                      )}
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6, type: "spring" }}
+                    >
+                      <award.icon className="w-10 h-10 text-white drop-shadow-lg group-hover:drop-shadow-xl" />
+                    </motion.div>
+
+                    {/* Rank badge with enhanced design */}
+                    {award.rank && (
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ type: "spring", delay: index * 0.1 }}
+                      >
+                        <Badge className={cn(
+                          "mb-4 px-4 py-1.5 text-sm font-bold",
+                          "bg-gradient-to-r from-gold to-orange text-white border-0",
+                          "shadow-lg shadow-gold/30"
+                        )}>
+                          <Crown className="w-3 h-3 mr-1.5 inline" />
+                          {award.rank}
+                        </Badge>
+                      </motion.div>
+                    )}
+
+                    {/* Title with gradient effect */}
+                    <h4 className={cn(
+                      "font-bold text-xl mb-3 text-white drop-shadow-lg",
+                      "transition-all duration-300",
+                    )}>
+                      {award.title}
+                    </h4>
+
+                    {/* Source with elegant styling */}
+                    <div className="mt-auto pt-2">
+                      <p className="text-sm font-medium text-white/90 drop-shadow-md">
+                        {award.source}
+                      </p>
+                      <div className="flex items-center justify-center gap-1 mt-3">
+                        <Star className="w-3 h-3 text-gold fill-gold drop-shadow-md" />
+                        <Star className="w-3 h-3 text-gold fill-gold drop-shadow-md" />
+                        <Star className="w-3 h-3 text-gold fill-gold drop-shadow-md" />
+                        <Star className="w-3 h-3 text-gold fill-gold drop-shadow-md" />
+                        <Star className="w-3 h-3 text-gold fill-gold drop-shadow-md" />
+                      </div>
+                    </div>
+
+                    {/* Decorative corner accent */}
+                    <div className={cn(
+                      "absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500",
+                      "bg-gradient-to-br rounded-bl-full",
+                      award.color
+                    )} style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 0)' }} />
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Call to Action */}
+          <motion.div
+            className="text-center mt-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+          >
+            <p className="text-muted-foreground mb-4 text-lg">
+              Join millions of travelers who have discovered why Sri Lanka is a world-class destination
+            </p>
+            <Link href="/tour-packages">
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button size="lg" className="bg-gradient-to-r from-gold to-orange hover:from-gold/90 hover:to-orange/90 text-white px-8 py-6 text-lg shadow-lg shadow-gold/30">
+                  <Compass className="w-5 h-5 mr-2" />
+                  Explore Award-Winning Destinations
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </motion.div>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Geography & Landscapes */}
       <section className="py-12 lg:py-16 bg-muted/30 overflow-hidden">
         <div className="container mx-auto px-4">
