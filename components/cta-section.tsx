@@ -10,21 +10,69 @@ import { Calendar, Users, Send, CheckCircle, Sparkles } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { motion, useInView } from "framer-motion"
 
+const WHATSAPP_NUMBER = "94741207909"
+
 const contactInfo = [
-  { icon: "📞", label: "+94 77 123 4567" },
-  { icon: "✉️", label: "hello@bluestartravels.lk" },
+  { icon: "📞", label: "+94 74 120 7909" },
+  { icon: "✉️", label: "bluestartravels26@gmail.com" },
   { icon: "📍", label: "42 Galle Road, Colombo 03, Sri Lanka" },
 ]
 
 export function CTASection() {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    date: "",
+    travelers: "",
+    message: "",
+  })
   const sectionRef = useRef<HTMLElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target
+    setFormData(prev => ({ ...prev, [id]: value }))
+  }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Format the WhatsApp message
+    const whatsappMessage = `🌟 *New Travel Inquiry from Blue Star Travels Website*
+
+👤 *Name:* ${formData.name}
+📧 *Email:* ${formData.email}
+📅 *Travel Date:* ${formData.date}
+👥 *Number of Travelers:* ${formData.travelers}
+
+💬 *Message:*
+${formData.message || "No additional message provided"}
+
+---
+_Sent via Blue Star Travels Contact Form_`
+
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage)
+    
+    // Open WhatsApp with the pre-filled message
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`
+    window.open(whatsappUrl, "_blank")
+    
+    // Show success state
     setIsSubmitted(true)
-    setTimeout(() => setIsSubmitted(false), 3000)
+    
+    // Reset form after delay
+    setTimeout(() => {
+      setIsSubmitted(false)
+      setFormData({
+        name: "",
+        email: "",
+        date: "",
+        travelers: "",
+        message: "",
+      })
+    }, 3000)
   }
 
   return (
@@ -169,7 +217,14 @@ export function CTASection() {
                 >
                   <div className="space-y-2">
                     <Label htmlFor="name">Your Name</Label>
-                    <Input id="name" placeholder="John Doe" className="border-border focus:border-teal transition-colors" required />
+                    <Input 
+                      id="name" 
+                      placeholder="John Doe" 
+                      className="border-border focus:border-teal transition-colors" 
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required 
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email Address</Label>
@@ -178,6 +233,8 @@ export function CTASection() {
                       type="email"
                       placeholder="john@example.com"
                       className="border-border focus:border-teal transition-colors"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       required
                     />
                   </div>
@@ -192,7 +249,14 @@ export function CTASection() {
                   <div className="space-y-2">
                     <Label htmlFor="date">Travel Date</Label>
                     <div className="relative">
-                      <Input id="date" type="date" className="border-border focus:border-teal transition-colors" required />
+                      <Input 
+                        id="date" 
+                        type="date" 
+                        className="border-border focus:border-teal transition-colors" 
+                        value={formData.date}
+                        onChange={handleInputChange}
+                        required 
+                      />
                       <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
                     </div>
                   </div>
@@ -205,6 +269,8 @@ export function CTASection() {
                         min="1"
                         placeholder="2"
                         className="border-border focus:border-teal transition-colors"
+                        value={formData.travelers}
+                        onChange={handleInputChange}
                         required
                       />
                       <Users className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
@@ -223,6 +289,8 @@ export function CTASection() {
                     id="message"
                     placeholder="I'm interested in exploring..."
                     className="w-full min-h-[100px] px-3 py-2 rounded-md border border-border focus:border-teal focus:outline-none focus:ring-1 focus:ring-teal resize-none transition-colors"
+                    value={formData.message}
+                    onChange={handleInputChange}
                   />
                 </motion.div>
 

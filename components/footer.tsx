@@ -1,19 +1,14 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Facebook, Instagram, Twitter, Youtube, MapPin, Phone, Mail, Send, CheckCircle } from "lucide-react"
-import { cn } from "@/lib/utils"
+import Link from "next/link"
+import { Facebook, Instagram, Twitter, Youtube, MapPin, Phone, Mail } from "lucide-react"
 
 const quickLinks = [
-  { name: "Home", href: "#home" },
-  { name: "Tour Packages", href: "#packages" },
-  { name: "Destinations", href: "#destinations" },
-  { name: "About Us", href: "#about" },
+  { name: "Home", href: "/" },
+  { name: "Tour Packages", href: "/tour-packages" },
+  { name: "Destinations", href: "/destinations" },
+  { name: "About Us", href: "/about" },
   { name: "Contact", href: "#contact" },
 ]
 
@@ -34,18 +29,6 @@ const socialLinks = [
 ]
 
 export function Footer() {
-  const [email, setEmail] = useState("")
-  const [isSubscribed, setIsSubscribed] = useState(false)
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (email) {
-      setIsSubscribed(true)
-      setEmail("")
-      setTimeout(() => setIsSubscribed(false), 3000)
-    }
-  }
-
   return (
     <footer className="bg-navy text-white">
       {/* Main Footer */}
@@ -68,7 +51,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-white/60 mb-6 leading-relaxed">
-              Your gateway to authentic Sri Lankan experiences. Creating unforgettable journeys since 2010.
+              Your gateway to authentic Sri Lankan experiences. A family business with 16 years of experience.
             </p>
 
             {/* Social Links */}
@@ -92,9 +75,15 @@ export function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-white/60 hover:text-teal transition-colors">
-                    {link.name}
-                  </a>
+                  {link.href.startsWith("#") ? (
+                    <a href={link.href} className="text-white/60 hover:text-teal transition-colors">
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link href={link.href} className="text-white/60 hover:text-teal transition-colors">
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -114,48 +103,23 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact & Newsletter */}
+          {/* Contact */}
           <div>
             <h4 className="text-lg font-bold mb-6">Contact Us</h4>
-            <ul className="space-y-4 mb-8">
+            <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-teal flex-shrink-0 mt-0.5" />
-                <span className="text-white/60">42 Galle Road, Colombo 03, Sri Lanka</span>
+                <span className="text-white/60">Colombo, Sri Lanka</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-teal" />
-                <span className="text-white/60">+94 77 123 4567</span>
+                <span className="text-white/60">+94 74 120 7909</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-teal" />
-                <span className="text-white/60">hello@bluestartravels.lk</span>
+                <span className="text-white/60">bluestartravels26@gmail.com</span>
               </li>
             </ul>
-
-            {/* Newsletter */}
-            <h4 className="text-lg font-bold mb-4">Newsletter</h4>
-            <form onSubmit={handleSubscribe} className="flex gap-2">
-              <Input
-                type="email"
-                placeholder="Your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:border-teal"
-                required
-              />
-              <Button
-                type="submit"
-                size="icon"
-                className={cn(
-                  "flex-shrink-0 transition-all",
-                  isSubscribed ? "bg-green-500" : "bg-teal hover:bg-teal/90",
-                )}
-                disabled={isSubscribed}
-              >
-                {isSubscribed ? <CheckCircle className="w-4 h-4" /> : <Send className="w-4 h-4" />}
-              </Button>
-            </form>
-            {isSubscribed && <p className="text-green-400 text-sm mt-2 animate-in fade-in">Thanks for subscribing!</p>}
           </div>
         </div>
       </div>

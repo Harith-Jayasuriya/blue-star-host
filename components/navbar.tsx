@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Menu, X, Phone, MessageCircle } from "lucide-react"
+import { Menu, X, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
@@ -13,11 +13,12 @@ const navLinks = [
   { name: "Tour Packages", href: "/tour-packages" },
   { name: "Destinations", href: "/destinations" },
   { name: "Sri Lanka", href: "/sri-lanka" },
+  { name: "About Us", href: "/about" },
   { name: "Contact", href: "#contact" },
 ]
 
 // Pages with dark hero sections that need white navbar text before scroll
-const darkHeroPages = ["/", "/sri-lanka", "/tour-packages", "/destinations"]
+const darkHeroPages = ["/", "/sri-lanka", "/tour-packages", "/destinations", "/about"]
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -95,11 +96,7 @@ export function Navbar() {
               )}
             >
               <Phone className="w-4 h-4" />
-              <span className="text-sm">+94 77 123 4567</span>
-            </Button>
-            <Button size="sm" className="bg-teal hover:bg-teal/90 text-white gap-2 animate-pulse">
-              <MessageCircle className="w-4 h-4" />
-              WhatsApp
+              <span className="text-sm">+94 74 120 7909</span>
             </Button>
           </div>
 
@@ -134,11 +131,6 @@ export function Navbar() {
                   </Component>
                 )
               })}
-              <hr className="my-2" />
-              <Button className="bg-teal hover:bg-teal/90 text-white gap-2 w-full">
-                <MessageCircle className="w-4 h-4" />
-                WhatsApp Us
-              </Button>
             </div>
           </div>
         )}
